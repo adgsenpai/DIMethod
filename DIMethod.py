@@ -15,7 +15,7 @@ def ComputeTabularMethod(eq, iters=1000):
         # TODO: Handle case where function can be splitted into two parts
         #return {'message': 'Function can be splitted into two parts'}
 
-    # Get term 1 and term 2
+    # Get term 1 and term 2    
     terms = expression.as_two_terms()
     term1 = terms[0]
     term2 = terms[1]
@@ -85,5 +85,5 @@ def ComputeTabularMethod(eq, iters=1000):
         return {'message': 'Function cannot be splitted into two parts but the solution is: '+str(integrate(expression))+' + C'}
 
 if __name__ == '__main__':
-    eq = 'sin(2*x)*cos(4*x)'
+    eq = 'sin(2*x)*(2*x)'
     print(ComputeTabularMethod(eq,100))

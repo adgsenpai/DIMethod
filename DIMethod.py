@@ -54,22 +54,17 @@ def ComputeTabularMethod(eq, iters=1000):
         elif opt['termNum'] == 2:
             u = term2
             dv = term1
-
         print('u =', u)
         print('dv =', dv)
         # Get the differential list
-        diff_list = opt['diff_list']
-        
+        diff_list = opt['diff_list']        
         x = Symbol('x')
         # for each item in diff_list, compute the integral
         integral_list = []
-
         integral_list.append(dv)
-
         for i in range(len(diff_list)):        
             dv = integrate(dv, x)
             integral_list.append(dv)            
-
         print('diff_list =', diff_list)
         print('integral_list =', integral_list)        
         signs = []
@@ -87,8 +82,8 @@ def ComputeTabularMethod(eq, iters=1000):
         return {'message': 'Function can be splitted into two parts and the solution is: '+str(result)+' + C'}
 
     else:
-        return {'message': 'Function cannot be splitted into two parts but the solution is: '+integrate(expression, x)+' + C'}
+        return {'message': 'Function cannot be splitted into two parts but the solution is: '+str(integrate(expression))+' + C'}
 
 if __name__ == '__main__':
-    eq = 'x**2*cos(4*x)'
-    print(ComputeTabularMethod(eq))
+    eq = 'sin(2*x)*cos(4*x)'
+    print(ComputeTabularMethod(eq,100))

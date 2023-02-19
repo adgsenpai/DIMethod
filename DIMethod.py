@@ -79,11 +79,11 @@ def ComputeTabularMethod(eq, iters=1000):
         # simplify the result and also remove the constant
         result = simplify(result-1)
                                                                            
-        return {'message': 'Function can be splitted into two parts and the solution is: '+str(result)+' + C'}
+        return {'message': 'Function can be splitted into two parts and the solution is: '+str(result)+' + C', 'u': u, 'dv': dv, 'diff_list': diff_list, 'integral_list': integral_list}
 
     else:
-        return {'message': 'Function cannot be splitted into two parts but the solution is: '+str(integrate(expression))+' + C'}
+        return {'message': 'Function cannot be splitted into two parts but the solution is: '+str(integrate(expression))+' + C', 'u': None, 'dv': None, 'diff_list': None, 'integral_list': None}
 
 if __name__ == '__main__':
-    eq = 'sin(2*x)*(2*x)'
+    eq = 'sin(2*x+1)*(2*x)'
     print(ComputeTabularMethod(eq,100))

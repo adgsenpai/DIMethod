@@ -16,5 +16,5 @@ def str_to_func(f):
     return func
 
 
-#print(str_to_func('x**2+2*x+1'))
+
 
